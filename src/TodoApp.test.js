@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import TodoApp from "./TodoApp";
 
@@ -13,5 +13,18 @@ describe("<TodoApp />", () => {
     const { getByText } = render(<TodoApp />);
     getByText("TDD 배우기");
     getByText("react-testing-library 사용하기");
+  });
+
+  it("create new todo", () => {
+    const { getByPlaceholderText, getByText } = render(<TodoApp />);
+
+    // input에 값을 입력
+    fireEvent.change(getByPlaceholderText("할 일을 입력하세요~"), {
+      target: { value: "새 항목 추가 하기" }, // {tartget:} 안에는 json 문법으로 작성
+    });
+    // 서브밋 이벤트 발생시키기
+    fireEvent.click(getByText("등록"));
+
+    getByText("새 항목 추가 하기"); // 이렇게 렌더링이 되는가
   });
 });
