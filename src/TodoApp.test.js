@@ -8,4 +8,10 @@ describe("<TodoApp />", () => {
     getByText("등록"); // TodoApp에서 등록이란 문자열을 가진 엘리먼트가 있는지 (TodoForm에 있음)
     getByTestId("TodoList"); // TodoApp에서 TodoList라는 테스트 id를 가진 엘리먼트가 있는지 (TodoList에 있음)
   });
+
+  it("renders two defaults todos", () => {
+    const { getByText } = render(<TodoApp />);
+    getByText("TDD 배우기");
+    getByText("react-testing-library 사용하기");
+  });
 });
