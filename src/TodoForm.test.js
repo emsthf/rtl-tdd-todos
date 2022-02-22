@@ -13,6 +13,7 @@ describe("<TodoForm />", () => {
 
   it("has input and a button", () => {
     const { input, button } = setup();
+
     expect(input).toBeTruthy(); // 있는지 없는지 검사
     expect(button).toBeTruthy();
   });
@@ -21,6 +22,7 @@ describe("<TodoForm />", () => {
     const { input } = setup();
 
     fireEvent.change(input, { target: { value: "TDD 배우기" } }); // json 타입으로 변경할 값을 적어주면 된다
+
     expect(input).toHaveAttribute("value", "TDD 배우기"); // value라는 속성이 'TDD 배우기'를 가지고 있는지
     // 변화가 감지되려면 useState를 사용해야 한다
   });

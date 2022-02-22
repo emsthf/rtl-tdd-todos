@@ -30,11 +30,19 @@ function TodoApp() {
     },
     [todos]
   );
+  const onToggle = useCallback(
+    (id) => {
+      setTodos(
+        todos.map((todo) => (todo.id === id ? { ...todo, done: !todo.done } : todo)) // 자바스크립트의 '=='은 메모리 번지수를 비교. '==='가 실제 값을 비교하는 수식
+      );
+    },
+    [todos]
+  );
 
   return (
     <div>
       <TodoFrom data-testid="helloworld" onInsert={onInsert} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onToggle={onToggle} />
     </div>
   );
 }

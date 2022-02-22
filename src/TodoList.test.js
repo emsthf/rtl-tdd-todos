@@ -18,6 +18,7 @@ describe("<TodoList />", () => {
 
   it("renders todos property", () => {
     const { getByText } = render(<TodoList todos={sampleTodos} />);
+
     getByText(sampleTodos[0].text);
     getByText(sampleTodos[1].text); // 글자가 잘 나오는지
   });
