@@ -1,0 +1,11 @@
+import { render } from "@testing-library/react";
+import React from "react";
+import TodoForm from "./TodoForm";
+
+describe("<TodoForm />", () => {
+  it("has input and a button", () => {
+    const { getByText, getByPlaceholderText } = render(<TodoForm />);
+    getByPlaceholderText("할 일을 입력하세요~"); // input이 있는지 없는지
+    getByText("등록"); // button이 있는지 없는지
+  });
+});
