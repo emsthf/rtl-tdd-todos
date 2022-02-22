@@ -30,18 +30,18 @@ describe("<TodoApp />", () => {
     getByText("새 항목 추가 하기"); // 이렇게 렌더링이 되는가
   });
 
-  // it("toggle todo", () => {
-  //   const { getByText } = render(<TodoApp />);
-  //   const todoText = getByText("TDD 배우기");
+  it("toggle todo", () => {
+    const { getByText } = render(<TodoApp />);
+    const todoText = getByText("TDD 배우기");
 
-  //   expect(todoText).toHaveStyle("text-decoration: line-through;"); // 이 스타일이 있는가
+    expect(todoText).toHaveStyle("text-decoration: line-through;"); // 이 스타일이 있는가
 
-  //   fireEvent.click(todoText);
-  //   expect(todoText).not.toHaveStyle("text-decoration: line-through;");
+    fireEvent.click(todoText);
+    expect(todoText).not.toHaveStyle("text-decoration: line-through;");
 
-  //   fireEvent.click(todoText);
-  //   expect(todoText).toHaveStyle("text-decoration: line-through;");
-  // });
+    fireEvent.click(todoText);
+    expect(todoText).toHaveStyle("text-decoration: line-through;");
+  });
 
   it("remove todo", () => {
     const { getByText } = render(<TodoApp />);
